@@ -29,3 +29,8 @@ Output format:
 
         response = self.llm.generate(system_prompt, user_prompt)
         return json.loads(response)
+
+# Added this helper function to resolve the ImportError in route_planner.py
+def plan_route(capability: dict, opportunities: dict):
+    agent = RoutePlannerAgent()
+    return agent.plan(capability, opportunities)
